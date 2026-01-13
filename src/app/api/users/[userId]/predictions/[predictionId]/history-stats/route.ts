@@ -7,11 +7,8 @@ export async function GET(
     try {
         const { userId, predictionId } = await params;
         
-        const searchParams = request.nextUrl.searchParams;
-        const startDrawSortation = searchParams.get('startDrawSortation') || '';
-
         const response = await fetch(
-            `http://localhost:8081/api/users/${userId}/predictions/${predictionId}/history?startDrawSortation=${startDrawSortation}`,
+            `http://localhost:8081/api/users/${userId}/predictions/${predictionId}/history-stats`,
             {
                 method: 'GET',
                 headers: {

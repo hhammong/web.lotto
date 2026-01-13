@@ -94,12 +94,12 @@ export default function PredictionsPage() {
                     setError(null);
                     
                     // 각 예측의 통계 정보 가져오기
-                    predictionsList.forEach((prediction) => {
+                    /* predictionsList.forEach((prediction) => {
                         const predictionId = prediction.predictionId || prediction.id;
                         if (predictionId) {
                             fetchPredictionStats(predictionId);
                         }
-                    });
+                    }); */
                 } else {
                     setError(result.message || '예측 목록을 불러오는 중 오류가 발생했습니다.');
                     setPredictions([]);
