@@ -49,14 +49,14 @@ async function Home() {
 
 
                     </div>
-                    <div className="grid grid-cols-3 gap-4 mt-4">
+                    <div className="grid grid-cols-2 gap-4 mt-4">
                         <RegisterButton />
                         <Button className="bg-green-600 hover:bg-green-700 text-white rounded-lg py-6 font-semibold" asChild>
                             <a href="/predictions">예측 목록</a>
                         </Button>
-                        <Button className="bg-red-600 hover:bg-red-700 text-white rounded-lg py-6 font-semibold" asChild>
+                        {/* <Button className="bg-red-600 hover:bg-red-700 text-white rounded-lg py-6 font-semibold" asChild>
                             <a href="/login">로그인</a>
-                        </Button>
+                        </Button> */}
                     </div>
                 </Card>
             </div>
