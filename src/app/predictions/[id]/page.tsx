@@ -321,7 +321,7 @@ export default function PredictionDetailPage() {
                             </div>
                             <div className="text-center">
                                 <p className="text-2xl font-bold text-purple-600">
-                                    {trackingStats.data.totalPrizeAmount}원
+                                    {trackingStats.data.totalPrizeAmount.toLocaleString()}원
                                 </p>
                                 <p className="text-sm text-gray-600">총 당첨금</p>
                             </div>
@@ -371,7 +371,9 @@ export default function PredictionDetailPage() {
                         </CardHeader>
                         <CardContent>
                             <div className="space-y-3 max-h-[600px] overflow-y-auto">
-                                {data.history.map((item) => (
+                                {[...(data.history || []), ...(data2?.history || [])]
+                                    .sort((a, b) => b.drawNo - a.drawNo)
+                                    .map((item) => (
                                     <Card 
                                         key={item.drawNo} 
                                         className={`p-4 ${item.rank ? 'border-2 border-green-500 bg-green-50' : ''}`}
@@ -399,7 +401,7 @@ export default function PredictionDetailPage() {
                                             <span className="text-sm text-gray-600">당첨번호:</span>
                                             <div className="flex gap-1">
                                                 {item.winningNumbers.map((num) => {
-                                                    const isMatched = item.matchedNumbers.includes(num);
+                                                    const isMatched = data.myNumbers.includes(num);
                                                     return (
                                                         <div
                                                             key={num}
@@ -474,7 +476,7 @@ export default function PredictionDetailPage() {
                                             <span className="text-sm text-gray-600">당첨번호:</span>
                                             <div className="flex gap-1">
                                                 {item.winningNumbers.map((num) => {
-                                                    const isMatched = item.matchedNumbers.includes(num);
+                                                    const isMatched = data.myNumbers.includes(num);
                                                     return (
                                                         <div
                                                             key={num}
